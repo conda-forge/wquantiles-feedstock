@@ -1,5 +1,5 @@
 {% set name = "wquantiles" %}
-{% set version = "0.5" %}
+{% set version = "0.6" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/wquantiles-{{ version }}.tar.gz
-  sha256: 623848c3c5a0f726ba2d5e24ef5498ab5f0b5f8c3fb8cc24ee566929da993365
+  sha256: a9e5b61277c8bf414394131bba4af0fc565de379ca73d6f7a336ba60184fa5c4
 
 build:
   number: 0
@@ -37,7 +37,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'weighted quantiles with Python'
+  summary: weighted quantiles with Python
   description: |
     Weighted quantiles with Python, including weighted median. This 
     library is based on numpy, which is the only dependence.
