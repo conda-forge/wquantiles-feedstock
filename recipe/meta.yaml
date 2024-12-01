@@ -20,6 +20,7 @@ requirements:
     - pip
     - poetry
     - python {{ python_min }}
+    - setuptools
   run:
     - numpy
     - python >={{ python_min }}
