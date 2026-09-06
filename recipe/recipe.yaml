@@ -1,0 +1,53 @@
+schema_version: 1
+
+context:
+  name: wquantiles
+  version: "0.6"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/wquantiles-${{ version }}.tar.gz
+  sha256: a9e5b61277c8bf414394131bba4af0fc565de379ca73d6f7a336ba60184fa5c4
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - pip
+    - poetry
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - numpy
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - weighted
+        - wquantiles
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: weighted quantiles with Python
+  description: |
+    Weighted quantiles with Python, including weighted median. This
+    library is based on numpy, which is the only dependence.
+  homepage: https://github.com/nudomarinero/wquantiles/
+  repository: https://github.com/nudomarinero/wquantiles/
+  documentation: https://github.com/nudomarinero/wquantiles/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
